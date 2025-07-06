@@ -13,12 +13,9 @@
 [![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=guilhermehenrsilva&bg_color=1a1a1a&color=9e4c98&line=9e4c98&point=403d3d&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 
-<div>
-<img height="180em" src="https://github-readme-stats-dgfd.vercel.app/api/top-langs/?username=guilhermehenrsilva&layout=compact&langs_count=7&theme=dracula"/>
-<img height="180em" src="https://github-readme-stats-dgfd.vercel.app/api?username=guilhermehenrsilva&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
-</div>
+
   
-![Snake animation](https://github.com/fscorsini/fscorsini/blob/output/github-contribution-grid-snake-dark.svg)
+![Snake animation](https://github.com/guilhermehenrsilva/guilhermehenrsilva/blob/output/github-contribution-grid-snake-dark.svg)
 
 
   
