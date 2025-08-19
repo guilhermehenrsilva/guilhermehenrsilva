@@ -52,3 +52,20 @@
 <a href ="mailto:guilherme.souza7@gmail.com"> <img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>  <a href="https://www.linkedin.com/in/guilherme-henrique1997/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="border-radius: 30px" target="_blank"></a> 
  
 </div>
+
+<p align="center">
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="images/breakout-dark.svg"
+    />
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="images/breakout-light.svg"
+    />
+    <img 
+      alt="My GitHub Breakout Game"
+      src="images/breakout-light.svg" 
+    />
+  </picture>
+</p>
