@@ -1,28 +1,39 @@
-name: Generate Contribution Breakout Game
+name: Generate Theme-Aware Breakout Game
 
 on:
   schedule:
+    # Roda uma vez por dia
     - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    # ADICIONE ESTA SEÇÃO DE PERMISSÕES AQUI
     permissions:
-      contents: write
+      contents: write # Permissão necessária para o commit
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: jathib/generate-breakout-game@v1
+      # 1. Roda a Action para gerar os SVGs (light e dark)
+      - name: Generate SVGs
+        uses: cyprieng/github-breakout@v1.0.0
         with:
-          USER_NAME: "guilhermehenrsilva"
+          # Pega o nome do dono do repositório automaticamente
+          github_username: ${{ github.repository_owner }}
 
-     
-      - name: Commit and push the generated game
+      # 2. Cria a pasta e move os arquivos gerados para dentro dela
+      - name: Move generated SVGs
+        run: |
+          mkdir -p images
+          mv output/light.svg images/breakout-light.svg
+          mv output/dark.svg images/breakout-dark.svg
+
+      # 3. Faz o commit dos novos SVGs para o repositório
+      - name: Commit and push SVGs
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update breakout game"
-          file_pattern: breakout.svg
+          commit_message: "chore: update theme-aware breakout SVGs"
+          # Define exatamente quais arquivos devem ser commitados
+          file_pattern: images/breakout-light.svg images/breakout-dark.svg
