@@ -1,0 +1,36 @@
+# Nome do Workflow - aparecerá na aba "Actions" do seu repositório
+name: Generate Contribution Breakout Game
+
+# Gatilhos: Quando esta Action deve rodar?
+on:
+  # Roda automaticamente todo dia à meia-noite (00:00 UTC)
+  schedule:
+    - cron: "0 0 * * *"
+  
+  # Permite que você rode manualmente pela aba "Actions"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Faz o checkout do seu repositório para que o workflow possa acessá-lo
+      - uses: actions/checkout@v4
+
+      # 2. Roda a Action principal para gerar o jogo
+      - uses: jathib/generate-breakout-game@v1
+        with:
+          # OBRIGATÓRIO: Coloque seu nome de usuário do GitHub aqui
+          USER_NAME: "guilhermehenrsilva"
+          
+          # Opcional: Nome do arquivo de saída. O padrão é 'breakout.svg'
+          # FILE_NAME: "breakout-game.svg"
+
+      # 3. Faz o commit do arquivo gerado de volta para o seu repositório
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: update breakout game" || exit 0
+          git push
